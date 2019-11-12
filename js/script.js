@@ -15,6 +15,7 @@ var res = document.getElementById('res');
 var replay = document.getElementById('replay');
 var bool = true;
 
+var nbClick = 0;
 // function qui déclenche lors du clic
 function add(){
     var test = this;
@@ -30,6 +31,7 @@ function add(){
                 this.className += ' filled';
                 test.textContent = ' ';
                 player = players[1];
+                nbClick = nbClick+ 1;
             }
         }else if(player === players[1]){ //Si on est au tour du joueur X
             if(this.className.indexOf('filled') >= 0){
@@ -40,6 +42,7 @@ function add(){
                 test.textContent = '  ';
                 //Au tour du joueur X
                 player = players[0];
+                nbClick = nbClick+ 1;
             }
         }
     }
@@ -79,6 +82,15 @@ function win(){
         replay.addEventListener('click', function () {
             location.reload();
         });
+    }else{
+        if(nbClick === 9){
+            res.innerHTML = 'Match nul? C\'est pathétique, recommencez !!';
+            replay.style.visibility = 'visible';
+
+            replay.addEventListener('click', function () {
+                location.reload();
+            });
+        }
     }
 }
 
