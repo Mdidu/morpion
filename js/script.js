@@ -13,9 +13,10 @@ var case9 = document.getElementById('case9');
 
 var res = document.getElementById('res');
 var replay = document.getElementById('replay');
-var bool = true;
 
+var bool = true;
 var nbClick = 0;
+
 // function qui déclenche lors du clic
 function add(){
     var test = this;
@@ -78,20 +79,19 @@ function win(){
             bool = false;
         }
         replay.style.visibility = 'visible';
-
-        replay.addEventListener('click', function () {
-            location.reload();
-        });
     }else{
         if(nbClick === 9){
             res.innerHTML = 'Match nul? C\'est pathétique, recommencez !!';
             replay.style.visibility = 'visible';
-
-            replay.addEventListener('click', function () {
-                location.reload();
-            });
         }
     }
+}
+
+function reload() {
+    res.innerHTML = "";
+    replay.style.visibility = 'hidden';
+    bool = true;
+    nbClick = 0;
 }
 
 case1.addEventListener('click', add);
@@ -103,3 +103,5 @@ case6.addEventListener('click', add);
 case7.addEventListener('click', add);
 case8.addEventListener('click', add);
 case9.addEventListener('click', add);
+
+replay.addEventListener('click', reload);
