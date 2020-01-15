@@ -1,6 +1,7 @@
 var players = ['O', 'X'];
 var player = players[0];
 
+var case0 = document.getElementsByClassName('case');
 var case1 = document.getElementById('case1');
 var case2 = document.getElementById('case2');
 var case3 = document.getElementById('case3');
@@ -92,6 +93,10 @@ function reload() {
     replay.style.visibility = 'hidden';
     bool = true;
     nbClick = 0;
+    for(var i=0; i< 9;i++){
+        case0[i].style.background = "";
+        case0[i].className = 'case';
+    }
 }
 
 case1.addEventListener('click', add);
