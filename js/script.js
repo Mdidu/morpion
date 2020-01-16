@@ -94,6 +94,7 @@ function reload() {
     replay.style.visibility = 'hidden';
     bool = true;
     nbClick = 0;
+    player = players[0];
     for(var i=0; i< 9;i++){
         case0[i].style.background = "";
         case0[i].className = 'case';
