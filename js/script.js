@@ -17,6 +17,7 @@ var replay = document.getElementById('replay');
 
 var bool = true;
 var nbClick = 0;
+var txt = '';
 
 // function qui déclenche lors du clic
 function add(){
@@ -96,6 +97,8 @@ function reload() {
     for(var i=0; i< 9;i++){
         case0[i].style.background = "";
         case0[i].className = 'case';
+        txt += '&nbsp;';
+        case0[i].innerHTML = txt;
     }
 }
 
